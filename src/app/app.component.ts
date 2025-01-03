@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WishItem } from '../shared/model/wishItem';
+import { filters } from '../components/wish-list-filter/wish-list-filter.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'wishlist';
+
+  items: WishItem[] = [
+    new WishItem('Buy a unicorn'),
+    new WishItem('Learn Angular', true),
+    new WishItem('Build a portfolio'),
+  ]
+
 }
