@@ -1,5 +1,6 @@
 import { Subject } from "rxjs";
 import { WishItem } from "../model/wishItem";
+import { Injectable } from "@angular/core";
 
 interface EventMap {
   'removeWish': WishItem;
@@ -10,7 +11,8 @@ interface Event {
   payload: EventMap[keyof EventMap];
 }
 
-class EventService {
+@Injectable()
+export class EventService {
 
   private subject = new Subject<Event>();
 
@@ -25,5 +27,3 @@ class EventService {
   }
 
 }
-
-export default new EventService();

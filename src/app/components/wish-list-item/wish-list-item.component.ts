@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { WishItem } from '../../../shared/model/wishItem';
-import events from '../../../shared/services/eventService';
+import { EventService } from '../../../shared/services/eventService';
 
 @Component({
   selector: 'app-wish-list-item',
@@ -10,6 +10,8 @@ import events from '../../../shared/services/eventService';
 export class WishListItemComponent {
 
   @Input() item!: WishItem;
+
+  constructor(private events: EventService) { }
 
   get labelClasses() {
     return {
@@ -23,7 +25,7 @@ export class WishListItemComponent {
   }
 
   removeItem() {
-    events.emit('removeWish', this.item)
+    this.events.emit('removeWish', this.item)
   }
 
 }

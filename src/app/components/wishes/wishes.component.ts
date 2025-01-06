@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { defaultFilter, WishFilter } from '../wish-list-filter/wish-list-filter.component';
 import { WishItem } from '../../../shared/model/wishItem';
-import events from '../../../shared/services/eventService';
+import { EventService } from '../../../shared/services/eventService';
 
 @Component({
   selector: 'app-wishes',
@@ -18,7 +18,7 @@ export class WishesComponent {
 
   filter: WishFilter = defaultFilter
 
-  constructor() {
+  constructor(events: EventService) {
     events.listen('removeWish', (wish: WishItem) => {
       this.removeWish(wish)
     })

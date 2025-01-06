@@ -10,6 +10,8 @@ import { WishListFilterComponent } from './components/wish-list-filter/wish-list
 import { WishListItemComponent } from './components/wish-list-item/wish-list-item.component';
 import { WishesComponent } from './components/wishes/wishes.component';
 
+import { EventService } from '../shared/services/eventService';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { WishesComponent } from './components/wishes/wishes.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
