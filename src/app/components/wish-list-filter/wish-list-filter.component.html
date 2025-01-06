@@ -1,0 +1,5 @@
+<div class="col-sm-2">
+  <select class="form-select" [ngModel]="filter" (ngModelChange)="onFilterChange($event)">
+    <option *ngFor="let item of filters" [ngValue]="item">{{item.label}}</option>
+  </select>
+</div>
