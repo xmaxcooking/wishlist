@@ -11,7 +11,7 @@ interface Event {
   payload: EventMap[keyof EventMap];
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class EventService {
 
   private subject = new Subject<Event>();
