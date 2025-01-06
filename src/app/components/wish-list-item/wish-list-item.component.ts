@@ -12,6 +12,13 @@ export class WishListItemComponent {
 
   constructor() { }
 
+  get labelClasses() {
+    return {
+      'fullfilled': this.item.completed,
+      'text-muted': this.item.completed
+    }
+  }
+
   toggleItem() {
     this.item.completed = !this.item.completed
   }
