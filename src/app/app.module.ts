@@ -9,6 +9,7 @@ import { WishListAddComponent } from './components/wish-list-add/wish-list-add.c
 import { WishListFilterComponent } from './components/wish-list-filter/wish-list-filter.component';
 import { WishListItemComponent } from './components/wish-list-item/wish-list-item.component';
 import { WishesComponent } from './components/wishes/wishes.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,9 @@ import { WishesComponent } from './components/wishes/wishes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

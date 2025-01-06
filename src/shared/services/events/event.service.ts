@@ -1,17 +1,15 @@
 import { Subject } from "rxjs";
-import { WishItem } from "../model/wishItem";
 import { Injectable } from "@angular/core";
-
-interface EventMap {
-  'removeWish': WishItem;
-};
+import { EventMap } from "./events";
 
 interface Event {
   name: keyof EventMap;
   payload: EventMap[keyof EventMap];
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class EventService {
 
   private subject = new Subject<Event>();

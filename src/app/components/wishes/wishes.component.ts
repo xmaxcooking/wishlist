@@ -1,26 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { defaultFilter, WishFilter } from '../wish-list-filter/wish-list-filter.component';
 import { WishItem } from '../../../shared/model/wishItem';
-import { EventService } from '../../../shared/services/eventService';
+import { EventService } from '../../../shared/services/events/event.service';
+import { WishService } from '../../../shared/services/wishes/wish.service';
 
 @Component({
   selector: 'app-wishes',
   templateUrl: './wishes.component.html',
   styleUrl: './wishes.component.css'
 })
-export class WishesComponent {
+export class WishesComponent implements OnInit {
 
-  items: WishItem[] = [
-    new WishItem('Buy a unicorn'),
-    new WishItem('Learn Angular', true),
-    new WishItem('Build a portfolio'),
-  ]
+  items: WishItem[] = []
 
   filter: WishFilter = defaultFilter
 
-  constructor(events: EventService) {
+  constructor(events: EventService, private wishes: WishService) {
     events.listen('removeWish', (wish: WishItem) => {
       this.removeWish(wish)
+    })
+  }
+
+  ngOnInit() {
+    this.wishes.getWishes().subscribe((data: any) => {
+      this.items = data
     })
   }
 

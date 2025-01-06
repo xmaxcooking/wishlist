@@ -1,0 +1,15 @@
+[
+  {
+    "text": "Buy a unicorn",
+    "completed": false
+  },
+  {
+    "text": "Learn Angular",
+    "completed": true
+  },
+  {
+    "text": "Build a portfolio",
+    "completed": false
+  }
+]
+
