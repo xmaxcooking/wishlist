@@ -1,3 +1,3 @@
-<wish-list-add (onNewWish)="addWish($event)" />
-<wish-list-filter [(filter)]="filter" />
-<wish-list [wishes]="filteredWishes()" />
+<app-wish-list-add (wishAdded)="addWish($event)" />
+<app-wish-list-filter [(filter)]="filter" />
+<app-wish-list [wishes]="filteredWishes()" />

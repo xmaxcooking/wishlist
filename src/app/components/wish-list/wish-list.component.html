@@ -1,4 +1,4 @@
-<div *ngIf="wishes.length == 0; then noItems else showItems"></div>
+<div *ngIf="wishes.length === 0; then noItems else showItems"></div>
 
 <ng-template #noItems>
   <div class="alert alert-info" role="alert">
@@ -9,7 +9,7 @@
 <ng-template #showItems>
   <ul class="wishlist" *ngIf="wishes.length > 0">
     <li *ngFor="let item of wishes">
-      <wish-list-item [item]="item" />
+      <app-wish-list-item [item]="item" />
     </li>
   </ul>
 </ng-template>

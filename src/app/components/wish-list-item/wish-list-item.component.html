@@ -1,6 +1,19 @@
-<div class="form-check">
-  <label class="form-check-label" [ngClass]="labelClasses">
-    <input class="form-check-input" type="checkbox" [checked]="item.completed" (click)="toggleItem()">
-    {{ item.text }}
-  </label>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-check">
+        <label class="form-check-label" [ngClass]="labelClasses">
+          <input class="form-check-input" type="checkbox" [checked]="item.completed" (click)="toggleItem()">
+          {{ item.text }}
+        </label>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div>
+        <button type="button" class="btn btn-danger" (click)="removeItem()">Remove</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+

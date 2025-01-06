@@ -2,20 +2,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { WishItem } from '../../../shared/model/wishItem';
 
 @Component({
-  selector: 'wish-list-add',
+  selector: 'app-wish-list-add',
   templateUrl: './wish-list-add.component.html',
   styleUrl: './wish-list-add.component.css'
 })
 export class WishListAddComponent {
 
-  newWishText: string = '';
+  newWishText = '';
 
-  @Output() onNewWish = new EventEmitter<WishItem>()
-
-  constructor() { }
+  @Output() wishAdded = new EventEmitter<WishItem>()
 
   newWish() {
-    this.onNewWish.emit(new WishItem(this.newWishText))
+    this.wishAdded.emit(new WishItem(this.newWishText))
     this.newWishText = ''
   }
 

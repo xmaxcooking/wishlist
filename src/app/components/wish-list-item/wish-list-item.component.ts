@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { WishItem } from '../../../shared/model/wishItem';
+import events from '../../../shared/services/eventService';
 
 @Component({
-  selector: 'wish-list-item',
+  selector: 'app-wish-list-item',
   templateUrl: './wish-list-item.component.html',
   styleUrl: './wish-list-item.component.css'
 })
 export class WishListItemComponent {
 
   @Input() item!: WishItem;
-
-  constructor() { }
 
   get labelClasses() {
     return {
@@ -21,6 +20,10 @@ export class WishListItemComponent {
 
   toggleItem() {
     this.item.completed = !this.item.completed
+  }
+
+  removeItem() {
+    events.emit('removeWish', this.item)
   }
 
 }

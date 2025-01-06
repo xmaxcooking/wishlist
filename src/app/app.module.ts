@@ -17,7 +17,7 @@ import { WishesComponent } from './components/wishes/wishes.component';
     WishListItemComponent,
     WishListFilterComponent,
     WishListAddComponent,
-    WishesComponent
+    WishesComponent,
   ],
   imports: [
     BrowserModule,
