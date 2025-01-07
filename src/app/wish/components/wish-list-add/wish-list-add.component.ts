@@ -12,7 +12,7 @@ export class WishListAddComponent {
 
   @Output() wishAdded = new EventEmitter<WishItem>()
 
-  newWish() {
+  submit() {
     this.wishAdded.emit(new WishItem(this.newWishText))
     this.newWishText = ''
   }
