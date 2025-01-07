@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { defaultFilter, WishFilter } from '../wish-list-filter/wish-list-filter.component';
-import { WishItem } from '../../../shared/model/wishItem';
-import { EventService } from '../../../shared/services/events/event.service';
-import { WishService } from '../../../shared/services/wishes/wish.service';
+import { WishItem } from '../../model/wishItem';
+import { EventService } from '../../services/events/event.service';
+import { WishService } from '../../services/wishes/wish.service';
 
 @Component({
   selector: 'app-wishes',
@@ -22,8 +22,15 @@ export class WishesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.wishes.getWishes().subscribe((data: any) => {
-      this.items = data
+    this.wishes.getWishes().subscribe({
+      next: (data: unknown) => {
+        if (data instanceof Array) {
+          this.items = data?.map((item: WishItem) => new WishItem(item.text, item.completed)) ?? []
+        }
+      },
+      error: (error) => {
+        console.error('Error loading wishes', error)
+      }
     })
   }
 
@@ -41,7 +48,7 @@ export class WishesComponent implements OnInit {
     this.filter = defaultFilter
   }
 
-  filteredWishes() {
+  getFilteredWishes() {
     return this.items.filter(this.filter.action)
   }
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { WishItem } from '../../../shared/model/wishItem';
+import { WishItem } from '../../model/wishItem';
 
 export interface WishFilter {
   label: string,
