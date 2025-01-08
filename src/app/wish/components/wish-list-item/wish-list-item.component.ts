@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { EventService } from '../../services/events/event.service';
 import { WishItem } from '../../model/wishItem';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wish-list-item',
@@ -11,7 +12,7 @@ export class WishListItemComponent {
 
   @Input() item!: WishItem;
 
-  constructor(private events: EventService) { }
+  constructor(private events: EventService, private router: Router) { }
 
   get labelClasses() {
     return {
@@ -26,6 +27,10 @@ export class WishListItemComponent {
 
   removeItem() {
     this.events.emit('removeWish', this.item)
+  }
+
+  goToDetail() {
+    this.router.navigate(['wish', this.item.id, this.item.text, this.item.completed])
   }
 
 }

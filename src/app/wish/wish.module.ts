@@ -7,6 +7,7 @@ import { WishListItemComponent } from './components/wish-list-item/wish-list-ite
 import { WishesComponent } from './components/wishes/wishes.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { WishDetailComponent } from './components/wish-detail/wish-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     WishListFilterComponent,
     WishListAddComponent,
     WishesComponent,
+    WishDetailComponent,
   ],
   imports: [
     CommonModule,

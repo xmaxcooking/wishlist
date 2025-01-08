@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-header',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './navigation-header.component.css'
 })
 export class NavigationHeaderComponent {
+
+  constructor(private router: Router) { }
+
+  goToContact() {
+    this.router.navigate(['contact']);
+  }
 
 }

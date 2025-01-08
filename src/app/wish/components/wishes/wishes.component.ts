@@ -25,7 +25,7 @@ export class WishesComponent implements OnInit {
     this.wishes.getWishes().subscribe({
       next: (data: unknown) => {
         if (data instanceof Array) {
-          this.items = data?.map((item: WishItem) => new WishItem(item.text, item.completed)) ?? []
+          this.items = data?.map((item: WishItem) => new WishItem(crypto.randomUUID(), item.text, item.completed)) ?? []
         }
       },
       error: (error) => {

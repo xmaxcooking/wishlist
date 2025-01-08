@@ -13,7 +13,7 @@ export class WishListAddComponent {
   @Output() wishAdded = new EventEmitter<WishItem>()
 
   submit() {
-    this.wishAdded.emit(new WishItem(this.newWishText))
+    this.wishAdded.emit(new WishItem(crypto.randomUUID(), this.newWishText))
     this.newWishText = ''
   }
 
