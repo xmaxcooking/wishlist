@@ -7,11 +7,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: WishesComponent },
   { path: 'contact', component: ContactComponent },
-  { path: "**", component: NotFoundComponent }
 ];
 
+const noRoute: Routes = [
+  { path: "**", component: NotFoundComponent }
+]
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes.concat(noRoute))],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
